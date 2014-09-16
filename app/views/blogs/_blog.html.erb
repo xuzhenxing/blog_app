@@ -1,0 +1,15 @@
+<li>
+	<span class="title">标题:<%= blog.title%></span><br>
+	<span class="timestamp">
+    发布时间:<%= blog.created_at %>
+	</span><br>
+	<span class="approved_comments_count">评论数:<%= blog.approved_comments_count%></span><br>
+	<%= link_to "show", blog_path(blog) %>
+	<a href="/blogs/<%= blog.id %>">show</a>
+	<%= link_to "edit", edit_blog_path(blog) %>
+	<a href="/blogs/<%= blog.id %>/edit">edit</a>
+	<% if current_user?(blog.user) %>
+    	<%= link_to "delete", blog, method: :delete,data: { confirm: "You sure?" },title: blog.title %>
+    	<a href="/blogs/<%= blog.id %>" data-method="delete" data-confirm="You sure?">hehe</a>
+	<% end %>
+</li>

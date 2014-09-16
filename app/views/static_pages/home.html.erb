@@ -1,0 +1,27 @@
+<% if signed_in? %>
+  <div class="row">
+    <aside class="span4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <section>
+        <a href="/blogs/new">new_blog</a>
+      </section>
+    </aside>
+    <div class="span8">
+      <h3>Blog Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
+  <div class="center hero-unit">
+    <h1>Welcome to the Blog App</h1>
+
+    <h2>
+      This is the home page for the blog application.
+    </h2>
+
+    <%= link_to "Sign up now!", signup_path,
+                                class: "btn btn-large btn-primary" %>
+  </div>
+<% end %>

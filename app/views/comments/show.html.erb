@@ -1,0 +1,8 @@
+<% provide(:title, @blog.id) %>
+<h1>View Comment</h1>
+<% @blog.comments.each do |comment| %>
+	<strong>评论人:</strong><%= comment.name%><br>
+	<strong>评&nbsp&nbsp&nbsp&nbsp论:</strong><%= comment.content%><br>
+	<strong>时&nbsp&nbsp&nbsp&nbsp间:</strong><%= comment.created_at%><br>
+	<a href="/comments/<%= comment.id %>" data-method="delete" data-confirm="You sure?">delete</a><br>
+<% end %>

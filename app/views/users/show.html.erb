@@ -1,0 +1,21 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+      <a href="/blogs/new">new_blog</a>
+    </section>
+  </aside>
+  <div class="span8">
+    <% if @user.blogs.any? %>
+      <h3>blogs (<%= @user.blogs.count %>)</h3>
+      <ol class="blogs">
+        <%= render @blogs %>
+      </ol>
+      <%= will_paginate @blogs %>
+    <% end %>
+  </div>
+</div>
