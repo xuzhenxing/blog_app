@@ -11,8 +11,9 @@ class BlogsController < ApplicationController
     @blog = Blog.find(params[:id])
   	# @blog = current_user.blogs.find_by(id:params[:id])
     @comment = @blog.comments.paginate(page:params[:page])
-    
+
     @comment = Comment.new()
+    @comment.destroy
   end
 
   def new

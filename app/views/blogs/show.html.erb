@@ -1,5 +1,6 @@
 <% provide(:title, @blog.title) %>
 <h1>View Blog</h1>
+<%= image_tag("blog.jpeg", alt: "Blogs") %>
 <div class="show">
 	标&nbsp&nbsp&nbsp&nbsp题:<h1><%= @blog.title %></h1><br>
 	文&nbsp&nbsp&nbsp&nbsp章:<br>&nbsp&nbsp&nbsp&nbsp<%= @blog.body %><br>
@@ -15,7 +16,6 @@
 			<strong>评&nbsp&nbsp&nbsp&nbsp论:</strong><%= comment.content%><br>
 			<strong>时&nbsp&nbsp&nbsp&nbsp间:</strong><%= comment.created_at%><br>
 			<a href="/comments/<%= comment.id %>" data-method="delete" data-confirm="You sure?">删除</a><br>
-
 		<% end %>
 	</div>
 	<div class="create comments">
@@ -23,10 +23,10 @@
 		<%= form_for(@comment) do |f| %>
 			<%= render 'shared/error_messages', object: f.object %>
 			<input type="hidden" name="blog_id" value="<%= @blog.id %>" />
-			<center><%= f.label :name %></center>
+			<center><%= f.label :姓名 %></center>
 			<center><%= f.text_field :name %></center>
 
-			<center><%= f.label :content %></center>
+			<center><%= f.label :评论 %></center>
 			<center><%= f.text_area :content%></center>
 			<br>
 			<center><%= f.submit "发布评论", class: "btn btn-large btn-primary" %></center>
