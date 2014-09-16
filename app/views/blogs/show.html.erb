@@ -4,6 +4,7 @@
 	标&nbsp&nbsp&nbsp&nbsp题:<h1><%= @blog.title %></h1><br>
 	文&nbsp&nbsp&nbsp&nbsp章:<br>&nbsp&nbsp&nbsp&nbsp<%= @blog.body %><br>
 	<br>评论数:&nbsp&nbsp&nbsp&nbsp<%= @blog.comments.count %>
+	<br><%= link_to "返回", current_user %>
 </div>
 <hr>
 <div class="comments">
@@ -13,7 +14,7 @@
 			<strong>评论人:</strong><%= comment.name%><br>
 			<strong>评&nbsp&nbsp&nbsp&nbsp论:</strong><%= comment.content%><br>
 			<strong>时&nbsp&nbsp&nbsp&nbsp间:</strong><%= comment.created_at%><br>
-			<a href="/comments/<%= comment.id %>" data-method="delete" data-confirm="You sure?">delete</a><br>
+			<a href="/comments/<%= comment.id %>" data-method="delete" data-confirm="You sure?">删除</a><br>
 
 		<% end %>
 	</div>
