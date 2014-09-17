@@ -1,15 +1,17 @@
-<li>
-	<span class="title">标题:<%= blog.title%></span><br>
-	<span class="timestamp">
-    发布时间:<%= blog.created_at %>
-	</span><br>
-	<span class="approved_comments_count">评论数:<%= blog.approved_comments_count%></span><br>
-	<%= link_to "查看", blog_path(blog) %>
-	<a href="/blogs/<%= blog.id %>">查看</a>
-	<%= link_to "编辑", edit_blog_path(blog) %>
-	<a href="/blogs/<%= blog.id %>/edit">编辑</a>
-	<% if current_user?(blog.user) %>
+
+<tr>
+	<td><%= blog.user_id %></td>
+	<td><span class="title"><%= blog.title%></span></td>
+	<td><span class="timestamp">
+    <%= blog.created_at %>
+	</span></td>
+	<td><center><span class="approved_comments_count"><%= blog.comments.count%></span></center></td>
+	<td><%= link_to "查看", blog_path(blog) %>
+	<a href="/blogs/<%= blog.id %>"></td>
+	<td><% if current_user?(blog.user) %><%= link_to "编辑", edit_blog_path(blog) %>
+	<a href="/blogs/<%= blog.id %>/edit"></a><% end %></td>
+	<td><% if current_user?(blog.user) %>
     	<%= link_to "删除", blog, method: :delete,data: { confirm: "You sure?" },title: blog.title %>
-    	<a href="/blogs/<%= blog.id %>" data-method="delete" data-confirm="You sure?">删除</a>
-	<% end %>
-</li>
+    	<a href="/blogs/<%= blog.id %>" data-method="delete" data-confirm="You sure?"></a>
+	<% end %></td>
+</tr>

@@ -9,7 +9,16 @@ class UsersController < ApplicationController
 
 	  def show
     	@user = User.find(params[:id])
-      @blogs = @user.blogs.paginate(page: params[:page])
+      @blogs = Blog.paginate(page: params[:page])
+
+
+      #@local = 5
+      #@offset = 0
+      #if params[:off]! = nil
+        #@offset = @local*params[:off].to_i
+      #end
+      #@count = Blog.count(:conditions=>["title like?","%#{params[:q]}%"])
+      #@blogs = Blog.find(:all, :limit=>@local, :offset=>@offset, :conditions=>["title like ?","%#{params[:q]}%"])
     end
 
     def new

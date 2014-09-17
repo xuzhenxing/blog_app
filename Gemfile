@@ -8,6 +8,7 @@ gem 'bcrypt-ruby','3.1.5'     #对密码进行不可逆的加密
 gem 'faker', '1.1.2'    #使用半真实的名字和 Email 地址创建示例用户
 gem 'will_paginate', '3.0.4'   #实现分页
 gem 'bootstrap-will_paginate', '0.0.9'    #设置 will_paginate 使用 Bootstrap 中的分页样式
+gem 'rails-simple-search'  #帮助Rails项目快速实现搜索／过滤页面
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do

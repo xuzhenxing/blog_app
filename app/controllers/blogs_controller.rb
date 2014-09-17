@@ -9,8 +9,12 @@ class BlogsController < ApplicationController
   
   def show
     @blog = Blog.find(params[:id])
+
   	# @blog = current_user.blogs.find_by(id:params[:id])
     @comment = @blog.comments.paginate(page:params[:page])
+    #@search = Search.new(Comment,params[:search])
+    #@search.order = 'name'
+    #@comments = @search.run
 
     @comment = Comment.new()
     @comment.destroy
@@ -51,6 +55,12 @@ class BlogsController < ApplicationController
   def destroy
   	@blog.destroy
   	redirect_to root_url
+  end
+
+  def search
+    @search = Search.new(Blog, params[:search])
+    @search.order = 'title'  # optional
+    @users = @search.run
   end
 
   private
