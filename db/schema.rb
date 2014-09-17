@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140912092119) do
+ActiveRecord::Schema.define(version: 20140917091849) do
 
   create_table "blogs", force: true do |t|
     t.string   "title"
@@ -20,8 +20,10 @@ ActiveRecord::Schema.define(version: 20140912092119) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "view_number",             default: 0
   end
 
+  add_index "blogs", ["created_at"], name: "index_blogs_on_user_name_and_created_at"
   add_index "blogs", ["user_id", "created_at"], name: "index_blogs_on_user_id_and_created_at"
 
   create_table "comments", force: true do |t|

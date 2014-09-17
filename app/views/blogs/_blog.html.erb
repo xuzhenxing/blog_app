@@ -1,10 +1,11 @@
 
 <tr>
-	<td><%= blog.user_id %></td>
+	<td><%= blog.user.name %></td>
 	<td><span class="title"><%= blog.title%></span></td>
 	<td><span class="timestamp">
     <%= blog.created_at %>
 	</span></td>
+	<td><span class="viewnumber"><center><%= blog.view_number %></center></span></td>
 	<td><center><span class="approved_comments_count"><%= blog.comments.count%></span></center></td>
 	<td><%= link_to "查看", blog_path(blog) %>
 	<a href="/blogs/<%= blog.id %>"></td>

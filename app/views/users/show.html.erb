@@ -6,25 +6,26 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
-      <a href="/blogs/new">新建blog</a>
+      <h4><a href="/blogs/new">新建blog</a></h4>
     </section>
   </aside>
   <div class="span8">
-    <table border="1">
-  <tr>
-  <td>作者</td>
-  <td>标题</td>
-  <td>发布时间</td>
-  <td>评论数</td>
-  <td>查看</td>
-  <td>编辑</td>
-  <td>删除</td>
-  </tr>
-        <h3>blogs (<%= @blogs.count %>)</h3>
-        <ol class="blogs">
-          <%= render @blogs %>
-        </ol>
-        <%= will_paginate @blogs %>
-      </table>
+    <h3>blogs (<%= @blogs.count %>)</h3>
+    <table border="2">
+      <tr>
+        <td>作者</td>
+        <td>标题</td>
+        <td>发布时间</td>
+        <td>浏览次数</td>
+        <td>评论数</td>
+        <td>查看</td>
+        <td>编辑</td>
+        <td>删除</td>
+      </tr>
+      <ol class="blogs">
+        <%= render @blogs %>
+      </ol>
+      <%= will_paginate @blogs %>
+    </table>
   </div>
 </div>

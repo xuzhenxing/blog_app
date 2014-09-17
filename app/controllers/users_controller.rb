@@ -5,6 +5,11 @@ class UsersController < ApplicationController
 
     def index
     	@users = User.paginate(page: params[:page])
+      # def search
+      #   @search = Search.new(User, params[:search])
+      #   @search.order = 'email'  # optional
+      #   @users = @search.run
+      # end
   	end
 
 	  def show
@@ -80,4 +85,8 @@ class UsersController < ApplicationController
     def admin_user
       redirect_to(root_path) unless current_user.admin?
     end
+
+    # def search_params
+    #   params.require(:search).permit(:name)
+    # end
 end
