@@ -8,7 +8,7 @@
 	<% @blog.update(view_number: @blog.view_number+1)%>
 	<% @blog.update(approved_comments_count: @blog.comments.count)%>
 	<br>
-	<%= link_to image_tag("back.png", alt: "Rails"), current_user %>
+	<%= link_to image_tag("back.png", alt: "图片说明",title:"返回"), current_user %>
 </div>
 <hr>
 <div class="comments">
