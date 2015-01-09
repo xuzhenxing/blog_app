@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20140917091849) do
 
   create_table "blogs", force: true do |t|
     t.string   "title"
-    t.string   "body"
+    t.text     "body"
     t.integer  "approved_comments_count"
     t.integer  "user_id"
     t.datetime "created_at"
@@ -23,8 +23,7 @@ ActiveRecord::Schema.define(version: 20140917091849) do
     t.integer  "view_number",             default: 0
   end
 
-  add_index "blogs", ["created_at"], name: "index_blogs_on_user_name_and_created_at"
-  add_index "blogs", ["user_id", "created_at"], name: "index_blogs_on_user_id_and_created_at"
+  add_index "blogs", ["user_id", "created_at"], name: "index_blogs_on_user_id_and_created_at", using: :btree
 
   create_table "comments", force: true do |t|
     t.string   "name"
@@ -34,7 +33,7 @@ ActiveRecord::Schema.define(version: 20140917091849) do
     t.datetime "updated_at"
   end
 
-  add_index "comments", ["blog_id", "created_at"], name: "index_comments_on_blog_id_and_created_at"
+  add_index "comments", ["blog_id", "created_at"], name: "index_comments_on_blog_id_and_created_at", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -46,7 +45,7 @@ ActiveRecord::Schema.define(version: 20140917091849) do
     t.boolean  "admin",           default: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
 end
