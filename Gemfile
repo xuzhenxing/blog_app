@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'https://ruby.taobao.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -10,6 +10,10 @@ gem 'faker', '1.1.2'    #使用半真实的名字和 Email 地址创建示例用
 gem 'will_paginate', '3.0.4'   #实现分页
 gem 'bootstrap-will_paginate', '0.0.9'    #设置 will_paginate 使用 Bootstrap 中的分页样式
 gem 'rails-simple-search'  #帮助Rails项目快速实现搜索／过滤页面
+
+gem 'rmagick'
+gem 'protected_attributes', '~> 1.0.9'
+gem 'carrierwave'
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do
