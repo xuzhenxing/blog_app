@@ -4,7 +4,7 @@ development:
   database: blog
   pool: 5
   username: root
-  password: asd
+  password: 
   host: localhost
 
 production:

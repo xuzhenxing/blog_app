@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :messageees
+
   get 'users/new'
 
   get 'static_pages/home'

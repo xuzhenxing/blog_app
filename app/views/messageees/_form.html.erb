@@ -1,0 +1,28 @@
+<%= form_for(@messageee) do |f| %>
+  <% if @messageee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@messageee.errors.count, "error") %> prohibited this messageee from being saved:</h2>
+
+      <ul>
+      <% @messageee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :asd %><br>
+    <%= f.text_field :asd %>
+  </div>
+  <p>
+    <%= f.file_field :image %>
+  </p>
+  <p>
+    <%= f.label :remote_image_url, "or image URL" %><br />
+    <%= f.text_field :remote_image_url %>
+  </p>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
