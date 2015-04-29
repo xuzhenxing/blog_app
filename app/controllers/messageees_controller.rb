@@ -69,6 +69,6 @@ class MessageeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def messageee_params
-      params.require(:messageee).permit(:asd)
+      params.require(:messageee).permit(:asd, :image)
     end
 end
